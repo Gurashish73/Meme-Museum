@@ -20,7 +20,7 @@ export default function Login() {
 
   const triggerVirus = () => {
     setIsInfected(true);
-    // Generate 35 random popup coordinates for that classic XP crash look
+    // Generate 35 random popup coordinates 
     const newPopups = Array.from({ length: 35 }).map((_, i) => ({
       id: i,
       x: Math.floor(Math.random() * (window.innerWidth - 300)),
@@ -35,13 +35,8 @@ export default function Login() {
 
     boink.currentTime = 0; 
     boink.play();
-    
-    // Back to the tight boundaries you liked!
     let newX = Math.floor(Math.random() * 700) - 350; 
     let newY = Math.floor(Math.random() * 400) - 200;
-
-    // THE FIX: If it accidentally picks a spot too close to the current position,
-    // we just push it slightly towards the opposite side so it doesn't freeze.
     if (Math.abs(newX - position.x) < 150) {
       newX = position.x > 0 ? newX - 200 : newX + 200;
     }
@@ -50,8 +45,6 @@ export default function Login() {
     }
 
     setPosition({ x: newX, y: newY });
-
-    // Raised the tolerance level to 8 misses!
     setMissCount(prev => {
       const newCount = prev + 1;
       if (newCount === 8) {
