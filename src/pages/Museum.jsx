@@ -482,6 +482,7 @@ export default function Museum() {
                         <motion.img src={winnerSticker} alt="Normal Win" style={{ width: '280px', filter: 'drop-shadow(0 0 30px rgba(212, 175, 55, 0.8))', margin: '0 auto', display: 'block' }} />
                         <h1 style={{ fontSize: '2.2rem', color: '#00ffcc', textShadow: '0 0 20px #00ffcc', fontFamily: 'monospace', margin: '15px auto', maxWidth: '800px', lineHeight: '1.4' }}>
                           Win but at wht cost Queen Rejected you 😂🫵🏻
+                          (Can't Enter Void without her, dummy)
                         </h1>
                         
                         <p style={{ color: '#ff0055', fontSize: '1.2rem', fontWeight: 'bold', textShadow: '0 0 10px #ff0055', margin: '0 0 25px 0', fontFamily: 'monospace' }}>
