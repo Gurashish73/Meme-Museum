@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background-color: #000; /* Dark mode for maximum dramatic effect */
+  color: #fff;
+  overflow-x: hidden; /* Prevent horizontal scrolling when things fly off-screen */
+  cursor: url('./assets/stickers/face_cursor.png'), auto; 
+  /* Hide the default cursor everywhere */
+* {
+  cursor: none !important; 
+}
+}

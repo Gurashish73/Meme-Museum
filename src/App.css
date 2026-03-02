@@ -1,0 +1,4 @@
+/* Hide the default cursor everywhere */
+* {
+  cursor: none !important; 
+}
