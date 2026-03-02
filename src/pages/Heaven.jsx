@@ -9,25 +9,21 @@ import hahaAudio from '../assets/audio/haha.mp3';
 export default function Heaven() {
   const audioRef = useRef(null);
   const navigate = useNavigate();
-
-  // --- TRICKY BUTTON STATES ---
   const [jumpCount, setJumpCount] = useState(0);
   const [btnPos, setBtnPos] = useState({ top: '80%', left: '50%' });
 
-  // Button taunts for every time it dodges the mouse
   const taunts = [
-    "TAKE ME BACK TO REALITY", // Initial
-    "TOO SLOW!",               // Jump 1
-    "NICE TRY 😂",             // Jump 2
-    "MISSED ME!",              // Jump 3
-    "YOU'RE TRAPPED HERE",     // Jump 4
-    "CATCH ME IF YOU CAN 🫵",   // Jump 5
-    "GETTING TIRED?",          // Jump 6
-    "FINE. YOU CAN LEAVE."     // Jump 7 (Stops moving)
+    "TAKE ME BACK TO REALITY",
+    "TOO SLOW!",
+    "NICE TRY 😂",
+    "MISSED ME!",
+    "YOU'RE TRAPPED HERE",
+    "CATCH ME IF YOU CAN 🫵",
+    "GETTING TIRED?",
+    "FINE. YOU CAN LEAVE."
   ];
 
   useEffect(() => {
-    // Play the trolling laugh track immediately
     audioRef.current = new Audio(hahaAudio);
     audioRef.current.loop = true;
     audioRef.current.volume = 1.0;
@@ -44,7 +40,6 @@ export default function Heaven() {
   // --- THE TROLL MECHANIC ---
   const handleButtonHover = () => {
     if (jumpCount < 7) {
-      // Teleport to a random percentage between 10% and 80% to keep it on screen
       const newTop = Math.floor(Math.random() * 70) + 10;
       const newLeft = Math.floor(Math.random() * 70) + 10;
       
@@ -92,9 +87,9 @@ export default function Heaven() {
         alt="GET RICKROLLED"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
-          scale: [0, 4.5], // Zooms in to be MASSIVE
+          scale: [0, 4.5],
           opacity: 1,
-          x: [-25, 25, -30, 30, -20, 20], // Aggressive vibration
+          x: [-25, 25, -30, 30, -20, 20],
           y: [-25, 25, 30, -30, 20, -20],
           rotate: [-2, 2, -3, 3, -1, 1] 
         }}
@@ -140,7 +135,7 @@ export default function Heaven() {
         style={{ 
           position: 'absolute', 
           zIndex: 100,
-          transform: 'translate(-50%, -50%)' // Keeps it centered on its coordinates
+          transform: 'translate(-50%, -50%)'
         }}
       >
         <button
@@ -151,11 +146,11 @@ export default function Heaven() {
             fontSize: '1.5rem',
             fontWeight: '900',
             fontFamily: 'monospace',
-            backgroundColor: jumpCount >= 7 ? '#33ff33' : '#000', // Turns green when it surrenders
+            backgroundColor: jumpCount >= 7 ? '#33ff33' : '#000',
             color: jumpCount >= 7 ? '#000' : '#fff',
             border: `4px solid ${jumpCount >= 7 ? '#000' : '#ff0000'}`,
             borderRadius: '10px',
-            cursor: jumpCount >= 7 ? 'pointer' : 'default', // Looks unclickable until it stops
+            cursor: jumpCount >= 7 ? 'pointer' : 'default',
             boxShadow: `0 0 30px ${jumpCount >= 7 ? '#33ff33' : '#ff0000'}`,
             textTransform: 'uppercase',
             whiteSpace: 'nowrap'

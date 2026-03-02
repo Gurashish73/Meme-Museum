@@ -46,8 +46,6 @@ export default function Museum() {
   const [isAujlaPlaying, setIsAujlaPlaying] = useState(false); 
   const [butterflyFlown, setButterflyFlown] = useState(false);
   const [quitSprung, setQuitSprung] = useState(false);
-
-  // --- NEW: Angry Bunty State ---
   const [buntyAngry, setBuntyAngry] = useState(false);
 
   // --- GAME MODE STATES ---
@@ -86,7 +84,7 @@ export default function Museum() {
     { id: 4, src: gurra1Sticker, title: 'Famous Quote', desc: 'Stay Blessed' },
     { id: 5, src: bewdaSticker, title: 'CR hi Kehde', desc: 'Bewda hu bewkoof nhi' },
     { id: 6, src: gurraSticker, title: 'UGB Winner', desc: 'Dont Underestimate' },
-    { id: 7, src: gurra3Sticker, title: 'Bunty', desc: 'Sabun Tez Hai' }, // This is our Angry target!
+    { id: 7, src: gurra3Sticker, title: 'Bunty', desc: 'Sabun Tez Hai' },
     { id: 8, src: gurra4Sticker, title: 'Never Quit', desc: 'Stay Positive' },
     { id: 9, src: gurra5Sticker, title: 'Hello Kitty Nigga', desc: 'Yumm !' },
     { id: 10, src: gurra6Sticker, title: 'Anda hi Kehde', desc: 'Another Nigga' },
@@ -98,7 +96,6 @@ export default function Museum() {
     { id: 16, src: 'https://media.giphy.com/media/HhTXt43pk1I1W/giphy.gif', title: 'Load-Bearing Div', desc: 'DO NOT CLICK. Structural integrity compromised.', isGameTrigger: true },
   ];
 
-  // The Win Watcher
   useEffect(() => {
     if (isGameMode && activeBricks.length === 0 && !gameOver) {
       if (physics.current.godMode) {
@@ -107,7 +104,6 @@ export default function Museum() {
     }
   }, [activeBricks.length, isGameMode, gameOver]);
 
-  // Global Mouse Up
   useEffect(() => {
     const handleGlobalUp = () => {
       if (physics.current && !physics.current.godMode) {
@@ -350,7 +346,7 @@ export default function Museum() {
 
     // --- NEW: Trigger Angry Bunty ---
     if (exhibit.id === 7) {
-      setBuntyAngry(prev => !prev); // Toggles the anger!
+      setBuntyAngry(prev => !prev);
       return;
     }
 
@@ -548,7 +544,7 @@ export default function Museum() {
             const currentAnimation = isTrapActive ? 'pulse 2s infinite' : (isThisPartyActive ? 'partyPulse 1s infinite' : (isTriggerActive ? 'glitchPulse 0.5s infinite' : 'none'));
 
             const isEscapingButterfly = exhibit.id === 1 && butterflyFlown;
-            const isAngryBunty = exhibit.id === 7 && buntyAngry; // NEW: Triggers animation on render
+            const isAngryBunty = exhibit.id === 7 && buntyAngry;
 
             return (
               <motion.div

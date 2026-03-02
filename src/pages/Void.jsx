@@ -25,7 +25,7 @@ export default function Void() {
   const alarmRef = useRef(null);
   const laughRef = useRef(null);
 
-  // Distractions (Massive & Engraved)
+  // Distractions
   const distractions = [
     { x: '10vw', y: '15vh', text: 'Oyeee bkl lick krdunga' },
     { x: '65vw', y: '20vh', text: 'kal phir mai ek pauwa coke ka piyunga' },
@@ -117,7 +117,7 @@ export default function Void() {
       ========================================== */}
       {!devilEncountered && !queenSaved && (
         <>
-          {/* THE FLASHLIGHT BEAM (zIndex 50 covers everything below it!) */}
+          {/* THE FLASHLIGHT BEAM */}
           <div style={{
             position: 'absolute', top: 0, left: 0, width: '100vw', height: '100vh',
             background: `radial-gradient(circle 240px at ${mousePos.x}px ${mousePos.y}px, transparent 10%, rgba(0,0,0,0.95) 60%, #000000 100%)`,
@@ -125,9 +125,8 @@ export default function Void() {
             zIndex: 50 
           }} />
 
-          {/* BACKGROUND DISTRACTIONS (zIndex 10 - hidden in dark) */}
-          {/* BACKGROUND DISTRACTIONS (Hidden UNDER the darkness) */}
-          {/* BACKGROUND DISTRACTIONS (Hidden UNDER the darkness with images) */}
+          
+          {/* BACKGROUND DISTRACTIONS */}
           {distractions.map((item, i) => (
             <motion.div 
               key={i} 
@@ -150,10 +149,10 @@ export default function Void() {
                 gap: '15px'
               }}
             >
-              {/* Renders the text if it exists */}
+              {/* Renders the text */}
               {item.text && <div>{item.text}</div>}
               
-              {/* Renders the WhatsApp screenshot if it exists */}
+              {/* Renders the WhatsApp screenshot */}
               {item.img && (
                 <img 
                   src={item.img} 
@@ -171,7 +170,7 @@ export default function Void() {
             </motion.div>
           ))}
 
-          {/* THE HIDDEN DEVIL (zIndex 20 - hidden in dark) */}
+          {/* THE HIDDEN DEVIL */}
           <div 
             onMouseEnter={triggerDevil}
             style={{ position: 'absolute', left: devilPos.x, top: devilPos.y, width: '150px', height: '150px', zIndex: 20, borderRadius: '50%' }}
@@ -179,7 +178,7 @@ export default function Void() {
             <img src={devilGif} alt="Trap" style={{ width: '100%', height: '100%', opacity: 0.8, filter: 'grayscale(50%)' }} />
           </div>
 
-          {/* THE QUEEN (FIXED: zIndex changed from 60 to 40 so she hides in the dark!) */}
+          {/* THE QUEEN */}
           <motion.img 
             src={princessSticker} 
             alt="Queen"
